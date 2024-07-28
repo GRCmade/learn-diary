@@ -1,0 +1,16 @@
+{
+  "version": "1",
+  "env": {
+    "compiler_version": "4.24"
+  },
+  "files": {
+    "pages/index/index.kt": {
+      "md5": "6805e1c149b2bdd59655032a5714932ccbf51adb",
+      "class": "GenPagesIndexIndex"
+    },
+    "index.kt": {
+      "md5": "497edc279f8b8e30d049ddf3f3eb48bf5b9d6352",
+      "class": ""
+    }
+  }
+}
