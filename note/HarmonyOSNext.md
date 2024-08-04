@@ -103,15 +103,70 @@ UIAbility是系统调度的最小单元。在设备内的功能模块之间跳�
 
 
 
+# 应用程序包结构
+
+## Stage包结构
+
+### 开发态包结构
+
+![image-20240801205921937](https://yuhepicgo.oss-cn-beijing.aliyuncs.com/image-20240801205921937.png)
+
+| 文件类型      | 说明                                                         |
+| ------------- | ------------------------------------------------------------ |
+| 配置文件      | 包括应用级配置信息、以及Module级配置信息：- **AppScope > app.json5**：[app.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/app-configuration-file-V5)，用于声明应用的全局配置信息，比如应用Bundle名称、应用名称、应用图标、应用版本号等。- **Module_name > src > main > module.json5**：[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/module-configuration-file-V5)，用于声明Module基本信息、支持的设备类型、所含的组件信息、运行所需申请的权限等。 |
+| ArkTS源码文件 | **Module_name > src > main > ets**：用于存放Module的ArkTS源码文件（.ets文件）。 |
+| 资源文件      | 包括应用级资源文件、以及Module级资源文件，支持图形、多媒体、字符串、布局文件等，详见[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/resource-categories-and-access-V5)。- **AppScope > resources** ：用于存放应用需要用到的资源文件。- **Module_name > src > main > resources** ：用于存放该Module需要用到的资源文件。 |
+| 其他配置文件  | 用于编译构建，包括构建配置文件、编译构建任务脚本、混淆规则文件、依赖的共享包信息等。- **build-profile.json5**：工程级或Module级的构建配置文件，包括应用签名、产品配置等。- **hvigorfile.ts**：应用级或Module级的编译构建任务脚本，开发者可以自定义编译构建工具版本、控制构建行为的配置参数。- **obfuscation-rules.txt**：混淆规则文件。混淆开启后，在使用Release模式进行编译时，会对代码进行编译、混淆及压缩处理，保护代码资产。- **oh-package.json5**：用于存放依赖库的信息，包括所依赖的三方库和共享包。 |
+
+
+
+### 编译态的包结构
+
+![QQ_1722517393458](https://yuhepicgo.oss-cn-beijing.aliyuncs.com/QQ_1722517393458.png)
+
+- **ets目录**：ArkTS源码编译生成.abc文件。
+- **resources目录**：AppScope目录下的资源文件会合入到Module下面资源目录中，如果两个目录下存在重名文件，编译打包后只会保留AppScope目录下的资源文件。
+- **module配置文件**：AppScope目录下的app.json5文件字段会合入到Module下面的module.json5文件之中，编译后生成HAP或HSP最终的module.json文件。
+
+
+
+### 发布态的包结构
+
+每个应用中至少包含一个.hap文件，可能包含若干个.hsp文件、也可能不含，一个应用中的所有.hap与.hsp文件合在一起称为**Bundle**，其对应的bundleName是应用的唯一标识
+
+当应用发布上架到应用市场时，需要将Bundle打包为一个.app后缀的文件用于上架，这个.app文件称为**App Pack**（Application Package），与此同时，DevEco Studio工具自动会生成一个**pack.info**文件。**pack.info**文件描述了App Pack中每个HAP和HSP的属性，包含APP中的bundleName和versionCode信息、以及Module中的name、type和abilities等信息。
+
+![QQ_1722517658283](https://yuhepicgo.oss-cn-beijing.aliyuncs.com/QQ_1722517658283.png)
+
+
+
+| Module类型     | 包类型                                                       | 说明                                                         |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Ability        | [HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/hap-package-V5) | 应用的功能模块，可以独立安装和运行，必须包含一个entry类型的HAP，可选包含一个或多个feature类型的HAP。 |
+| Static Library | [HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/har-package-V5) | 静态共享包，编译态复用。- 支持应用内共享，也可以发布后供其他应用使用。- 作为二方库，发布到[OHPM](https://ohpm.openharmony.cn/)私仓，供公司内部其他应用使用。- 作为三方库，发布到[OHPM](https://ohpm.openharmony.cn/)中心仓，供其他应用使用。- 多包（HAP/HSP）引用相同的HAR时，会造成多包间代码和资源的重复拷贝，从而导致应用包膨大。- 注意：[编译HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/har-package-V5#编译)时，建议开启混淆能力，保护代码资产。 |
+| Shared Library | [HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/in-app-hsp-V5) | 动态共享包，运行时复用。- 当前仅支持应用内共享。- 当多包（HAP/HSP）同时引用同一个共享包时，采用HSP替代HAR，可以避免HAR造成的多包间代码和资源的重复拷贝，从而减小应用包大小。 |
+
+
+
+# 布局优化
+
+lazyForEach可以优化组件的性能，有利于大量列表项的渲染
+
+forEach提供了一个keyGenerator参数 ，这个参数可以通过它来自定义键值的生成规则
 
 
 
 
 
+# ArkTS
 
+声明式UI与html开发区别
 
+![image-20240803152057953](https://yuhepicgo.oss-cn-beijing.aliyuncs.com/image-20240803152057953.png)
 
+## typescrpit
 
+![image-20240803152356296](/Users/gaoruicheng/Library/Application Support/typora-user-images/image-20240803152356296.png)
 
-
+变量的声明：
 
