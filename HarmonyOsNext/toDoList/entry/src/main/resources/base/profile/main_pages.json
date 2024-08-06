@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/index",
-    "pages/propPage"
+    "pages/propPage",
+    "pages/lifeComponent"
   ]
 }

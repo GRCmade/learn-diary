@@ -12,7 +12,7 @@ class routerItem {
 }
 
 const Router:Array<routerItem> = [
-  new routerItem("TODO页面",'pages/propPage')
+  new routerItem("TODO页面",'pages/propPage'),
 ]
 
 @Entry
