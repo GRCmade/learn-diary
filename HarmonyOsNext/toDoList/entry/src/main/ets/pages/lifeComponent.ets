@@ -3,6 +3,7 @@
 struct lifeComponent{
   @State arr:string[] = [];
   build() {
+    // TODO column默认就是居中，但是宽度不会撑开，因此一开始是不显示的
     Column({space:20}){
       Button('新增列表项')
         .onClick(()=>{
@@ -12,6 +13,7 @@ struct lifeComponent{
         myText({name:item,index:index,delete:this.delete.bind(this)})
       })
     }
+    .width('100%')
   }
   delete(index:number){
     this.arr.splice(index, 1)

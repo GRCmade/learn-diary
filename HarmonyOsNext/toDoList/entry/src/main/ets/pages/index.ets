@@ -26,7 +26,7 @@ struct Index{
       ForEach(Router,(item:routerItem,index)=>{
         Row(){
           Text(item.name)
-        }.attributeModifier(this.myRowModifier)
+        }
         .onClick(()=>{
           router.pushUrl({url:item.url})
         })
