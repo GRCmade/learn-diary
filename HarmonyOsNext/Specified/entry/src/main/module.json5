@@ -2,6 +2,7 @@
   "module": {
     "name": "entry",
     "type": "entry",
+    "srcEntry": "./ets/myabilitystage/myAbilityStage.ets",
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
     "deviceTypes": [
@@ -32,6 +33,16 @@
             ]
           }
         ]
+      },
+      {
+        "name": "DocumentAbility",
+        "srcEntry": "./ets/documentability/DocumentAbility.ets",
+        "description": "$string:DocumentAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:DocumentAbility_label",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "launchType": "specified"
       }
     ],
     "extensionAbilities": [
@@ -45,7 +56,7 @@
             "name": "ohos.extension.backup",
             "resource": "$profile:backup_config"
           }
-        ],
+        ]
       }
     ]
   }
