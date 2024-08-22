@@ -5,6 +5,13 @@
 			"style": {
 				"navigationBarTitleText": "uni-app x"
 			}
+		},
+		{
+			"path" : "pages/uts/pages/uts-test/uts-test",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
 	],
 	"globalStyle": {

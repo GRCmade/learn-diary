@@ -1,0 +1,13 @@
+import { Item } from "@/assets/type/PageInstruction";
+
+const data : Item[] = [
+	{
+		name: "学习使用uts",
+		page: "uts-data",
+		summarize: [
+			{ title: "yuhe1", type: "primary" }
+		]
+	}
+];
+
+export const utsData : Item[] = data;

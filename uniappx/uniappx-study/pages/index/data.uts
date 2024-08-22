@@ -1,0 +1,11 @@
+type item = {
+	name:string,
+	data:Array<number>
+}
+
+export const jsonData:Array<item> = [
+	{
+		name:"yuhe",
+		data:[1,2,3]
+	}
+]

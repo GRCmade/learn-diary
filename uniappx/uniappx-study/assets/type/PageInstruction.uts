@@ -1,0 +1,10 @@
+export type SummarizeItem = {
+	title : string;
+	type : string;
+};
+
+export type Item = {
+	name : string;
+	page : string;
+	summarize : SummarizeItem[];
+};

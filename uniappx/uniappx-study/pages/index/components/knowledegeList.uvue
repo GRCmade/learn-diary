@@ -1,0 +1,26 @@
+<template>
+	<view>
+		<text>yuhe</text>
+		<text>{{age}}</text>
+		<text>{{pageData}}</text>
+	</view>
+</template>
+
+<script setup>
+	// defineProps(['pageData','age'])
+	import { Item } from '../../../assets/type/PageInstruction';
+	defineProps({
+		age: {
+			type: Number,
+			default: 0
+		},
+		pageData:{
+			type:Array<Item>,
+			default:[]
+		}
+	})
+</script>
+
+<style>
+
+</style>

@@ -1,26 +1,17 @@
 <template>
-	<view>
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
-	</view>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+		<knowledegeListUvue :pageData="utsData" :age="10"></knowledegeListUvue>
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+<script setup lang="uts">
+	import { utsData } from '../uts/uts.uts';
+	import knowledegeListUvue from './components/knowledegeList.uvue';
+	console.log(utsData)
 </script>
 
 <style>
@@ -33,6 +24,6 @@
 	.title {
 		font-size: 18px;
 		color: #8f8f94;
-    text-align: center;
+		text-align: center;
 	}
 </style>
