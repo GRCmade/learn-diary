@@ -34,7 +34,7 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	/*每个页面公共css */
 	.uni-row {
 		flex-direction: row;
@@ -42,5 +42,15 @@
 
 	.uni-column {
 		flex-direction: column;
+	}
+	
+	.primary{
+		background-color: $uni-color-primary;
+	}
+	.warn{
+		background-color: $uni-color-warning;
+	}
+	.error{
+		background-color: $uni-color-error;
 	}
 </style>

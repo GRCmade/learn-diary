@@ -1,0 +1,18 @@
+import { Item,PaperType } from "@/assets/type/PageInstruction";
+
+const data : Item[] = [
+	{
+		name: "",
+		page: "",
+		summarize: [
+			{ title: "", type: "" }
+		]
+	},
+];
+
+const paperTile:string = "uvue"
+
+export const uvueData : PaperType = {
+	paperTile:paperTile,
+	data:data
+};

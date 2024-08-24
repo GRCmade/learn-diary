@@ -1,26 +1,168 @@
 <template>
-	<view>
-		<text>yuhe</text>
-		<text>{{age}}</text>
-		<text>{{pageData}}</text>
+	<view class="" v-for="(item,index) in paperDataWithBool" :key="index">
+		<text class="title">{{item.paperTile}}</text>
+		<view class="box" :class="paper.isSelect?'select':''" v-for="paper in item.data">
+			<view class="box-item wrapper">
+				<!-- TODO 安卓上点击不触发 -->
+				<view class="box-item-item" style="width: 70%;" @click="click('select',paper)">
+					<uni-icons type="list" size="20"></uni-icons>
+					<text style="margin-left: 5px;font-weight: 700;">{{paper.name}}</text>
+					<text class="badge primary">{{getBadgeCount(paper.summarize,'primary')}}</text>
+					<text class="badge warn">{{getBadgeCount(paper.summarize,'warn')}}</text>
+					<text class="badge error">{{getBadgeCount(paper.summarize,'error')}}</text>
+				</view>
+				<view class="box-item-item" @click="click('nav',paper)">
+					<text style="color: #999;">{{paper.page}}</text>
+					<uni-icons color="#999" type="right" size="16"></uni-icons>
+				</view>
+			</view>
+			<view class="box-summarize wrapper" v-if="paper.isSelect">
+				<view class="box-summarize-line" v-for="summer in paper.summarize">
+					<text class="circle" :class="summer.type"></text>
+					<!-- TODO 为啥这个地方web端不会换行 -->
+					<text class="summer-title">{{summer.title}}</text>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script setup>
-	// defineProps(['pageData','age'])
-	import { Item } from '../../../assets/type/PageInstruction';
-	defineProps({
-		age: {
-			type: Number,
-			default: 0
-		},
-		pageData:{
-			type:Array<Item>,
-			default:[]
+	import { PaperType, Item, SummarizeItem } from '../../../assets/type/PageInstruction';
+	const props = defineProps({
+		paperData: {
+			// 记录：defineProps指定类型必须得是完整写法
+			type: Array as PropType<PaperType[]>,
+			default: () : Array<PaperType> => {
+				return []
+			}
 		}
 	})
+	// 给Item加一个bool类型的选中
+	type ItemWithBool = {
+		name : string
+		page : string
+		pageUrl : string
+		summarize : SummarizeItem[]
+		isSelect : boolean
+	}
+
+	class PaperDataWithBool {
+		paperTile : string = '';
+		data : ItemWithBool[] = [];
+		constructor(title : string, data : Item[]) {
+			this.paperTile = title
+			let ls : ItemWithBool[] = []
+			data.forEach((item) => {
+				const Item : ItemWithBool = {
+					name: item.name,
+					page: item.page,
+					pageUrl:`/pages/${title}/pages/${item.page}/${item.page}`,
+					summarize: item.summarize as SummarizeItem[],
+					isSelect: false
+				}
+				ls.push(Item)
+			})
+			this.data = ls
+		}
+	}
+	const paperDataWithBool = ref<PaperDataWithBool[]>([]);
+	onLoad((event : OnLoadOptions) => {
+		// TODO 为啥这个length能取到值，但是报错
+		let len = props.paperData.length;
+		paperDataWithBool.value = [];
+		for (let i = 0; i < len; i++) {
+			let paperDataWithBoolItem = new PaperDataWithBool(
+				props.paperData[i].paperTile,
+				props.paperData[i].data
+			);
+			paperDataWithBool.value.push(paperDataWithBoolItem);
+		}
+		console.log(paperDataWithBool);
+	});
+
+	const getBadgeCount = (arr:SummarizeItem[],type:string):number=>{
+		// filter方法还不支持
+		let len = 0
+		arr.forEach((item:SummarizeItem)=>{
+			if(item.type == type)len++
+		})
+		return len
+	}
+	const click = (type:string,item : ItemWithBool) => {
+		if(type == 'select'){
+			item.isSelect = !item.isSelect
+		}
+		if(type == 'nav')uni.navigateTo({url:item.pageUrl})
+	}
 </script>
 
-<style>
+<style lang="scss">
+	.title {
+		margin: 5px 0;
+		text-align: center;
+		font-size: 20px;
+		font-weight: 700;
+		color: #000 !important;
+	}
 
+	.wrapper {
+		padding: 0 15px;
+	}
+
+	.select {
+		background-color: $uni-bg-color-grey;
+		margin: 5px 0;
+	}
+
+	.box {
+		border-radius: 20px;
+		padding: 10px 0;
+
+		.box-item {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			.box-item-item {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+
+			.badge {
+				text-align: center;
+				line-height: 20px;
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				color: #fff;
+				font-size: 13px;
+				font-weight: 700;
+				margin-left: 5px;
+			}
+		}
+
+		.box-summarize {
+
+			.box-summarize-line {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding: 5px 0;
+
+				.summer-title {
+					// padding: 5px;
+				}
+
+				.circle {
+					margin-right: 10px;
+					width: 20px;
+					height: 20px;
+					border-radius: 10px;
+				}
+			}
+		}
+	}
 </style>

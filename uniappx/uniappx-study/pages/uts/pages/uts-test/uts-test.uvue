@@ -1,17 +1,14 @@
 <template>
-	<!-- #ifdef APP -->
-	<scroll-view style="flex:1">
-	<!-- #endif -->
-		
-	<!-- #ifdef APP -->
-	</scroll-view>
-	<!-- #endif -->
+  <view class="page">
+    <ObjectType :str="str" :num="num" :bool="bool" :obj="obj" :arr="arr" />
+  </view>
 </template>
 
-<script setup>
-	const exportData = "yuhe"
+<script setup lang="uts">
+  import ObjectType from "./object-type-composition.uvue";
+  const str = 'str'
+  const num = 10
+  const bool = true
+  const obj = { age: 18 }
+  const arr = [{name:'yuhe',num:[{suname:[1,2]}]}]
 </script>
-
-<style>
-		
-</style>

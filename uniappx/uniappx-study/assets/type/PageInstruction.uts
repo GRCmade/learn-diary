@@ -8,3 +8,8 @@ export type Item = {
 	page : string;
 	summarize : SummarizeItem[];
 };
+
+export type PaperType = {
+	paperTile:string
+	data:Item[]
+}

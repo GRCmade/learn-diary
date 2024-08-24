@@ -1,13 +1,18 @@
-import { Item } from "@/assets/type/PageInstruction";
+import { Item, PaperType } from "@/assets/type/PageInstruction";
 
 const data : Item[] = [
 	{
-		name: "学习使用uts",
-		page: "uts-data",
+		name: "",
+		page: "",
 		summarize: [
-			{ title: "yuhe1", type: "primary" }
+			{ title: "", type: "" }
 		]
-	}
+	},
 ];
 
-export const utsData : Item[] = data;
+const paperTile : string = "uts"
+
+export const utsData : PaperType = {
+	paperTile: paperTile,
+	data: data
+};

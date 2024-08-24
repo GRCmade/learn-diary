@@ -2,16 +2,19 @@
 	<!-- #ifdef APP -->
 	<scroll-view style="flex:1">
 	<!-- #endif -->
-		<knowledegeListUvue :pageData="utsData" :age="10"></knowledegeListUvue>
+		<knowledegeListUvue :paperData="paperData"></knowledegeListUvue>
 	<!-- #ifdef APP -->
 	</scroll-view>
 	<!-- #endif -->
 </template>
 
-<script setup lang="uts">
+<script setup>
 	import { utsData } from '../uts/uts.uts';
+	import { uvueData } from "../uvue/uvue.uts"
+	import { PaperType } from '@/assets/type/PageInstruction';
 	import knowledegeListUvue from './components/knowledegeList.uvue';
-	console.log(utsData)
+	const paperData = ref<PaperType[]>([utsData,uvueData])
+
 </script>
 
 <style>
