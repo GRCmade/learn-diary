@@ -19,6 +19,20 @@
 			{
 				"navigationBarTitleText" : ""
 			}
+		},
+		{
+			"path" : "pages/error/pages/error-1/error-1",
+			"style" : 
+			{
+				"navigationBarTitleText" : "error"
+			}
+		},
+		{
+			"path" : "pages/error/pages/error-forChange/error-forChange",
+			"style" : 
+			{
+				"navigationBarTitleText" : "error-forChange"
+			}
 		}
 	],
 	"globalStyle": {

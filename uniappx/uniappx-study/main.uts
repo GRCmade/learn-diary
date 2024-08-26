@@ -7,3 +7,11 @@ export function createApp() {
 		app
 	}
 }
+
+function test<T>(arg : T) : T {
+	return arg
+}
+
+const str : string = test<string>('a')
+
+const num : number = test<number>(1)

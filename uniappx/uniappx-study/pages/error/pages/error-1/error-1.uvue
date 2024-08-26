@@ -1,0 +1,25 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+		
+		
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script setup>
+	// function test<T>(arg: T): T {
+	//   return arg
+	// }
+	
+	// const str: string = test<string>('a')
+	
+	// const num: number = test<number>(1)
+
+</script>
+
+<style>
+
+</style>

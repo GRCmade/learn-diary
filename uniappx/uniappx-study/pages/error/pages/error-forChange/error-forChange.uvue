@@ -1,0 +1,48 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+		<view v-for="(item,index) in list" :key="index">
+			<view v-for="i in item.data" @click="click(i)">
+				{{ i }}
+			</view>
+		</view>
+		<button @click="GetInfo">GetInfo</button>
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script setup>
+	type DataItem = {
+		name:string
+		select:boolean
+	}
+	type Item = {
+		name : string
+		data : DataItem[]
+	}
+	let item1 : Item = {
+		name: "yuhe1",
+		data: [{name:'1',select:false}]
+	}
+	let item2 : Item = {
+		name: "yuhe2",
+		data: [{name:'1',select:false}]
+	}
+	let item3 : Item = {
+		name: "yuhe3",
+		data: [{name:'1',select:false}]
+	}
+	const list = ref<Item[]>([item1,item2,item3])
+	const click = (item : DataItem) => {
+		item.select = !item.select
+	}
+	const GetInfo = () => {
+		console.log(list.value)
+	}
+</script>
+
+<style>
+
+</style>

@@ -1,0 +1,25 @@
+import { Item, PaperType } from "@/assets/type/PageInstruction";
+
+const data : Item[] = [
+	{
+		name: "问题页面1",
+		page: "error-1",
+		summarize: [
+			{ title: "在前面注释是正常，在后面注释是错误的", type: "error" },
+			{ title: "下面这段代码，在android上不能执行", type: "error" }
+		]
+	},{
+		name: "问题页面2",
+		page: "error-forChange",
+		summarize: [
+			{ title: "在前面注释是正常，在后面注释是错误的", type: "error" },
+		]
+	},
+];
+
+const paperTile : string = "error"
+
+export const errorData : PaperType = {
+	paperTile: paperTile,
+	data: data
+};

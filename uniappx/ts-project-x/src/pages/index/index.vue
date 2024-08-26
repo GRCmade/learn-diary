@@ -1,20 +1,32 @@
 <template>
-  <view class="box">
-    <text class="circle"></text>
-    <text>刷卡的环境卡上打卡上贷记卡上课的萨卡活动空间啊啥的卡上</text>
-  </view>
+  		<view v-for="(item,index) in list" :key="index">
+			<view @click="click(item)">
+				{{ item }}
+			</view>
+		</view>
+		<button @click="GetInfo">GetInfo</button>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const title = ref('Hello')
-function forTest() {
-  console.log('forTest')
-}
-forTest()
-getCurrentPages().forEach((page: Page.PageInstance): void => {
-  console.log(page.route)
-})
+import { ref,Ref } from 'vue'
+type Item = {
+		name : string
+		select : boolean
+	}
+	let item : Item = {
+		name: "yuhe",
+		select: false
+	}
+	const list = ref<Item[]>([])
+	list.value.push(item)
+	list.value.push(item)
+	list.value.push(item)
+	const click = (item : Item) => {
+		item.select = !item.select
+	}
+	const GetInfo = () => {
+		console.log(list.value)
+	}
 </script>
 
 <style>

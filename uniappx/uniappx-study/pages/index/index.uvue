@@ -11,10 +11,11 @@
 <script setup>
 	import { utsData } from '../uts/uts.uts';
 	import { uvueData } from "../uvue/uvue.uts"
+	import { errorData } from "../error/error.uts"
 	import { PaperType } from '@/assets/type/PageInstruction';
 	import knowledegeListUvue from './components/knowledegeList.uvue';
-	const paperData = ref<PaperType[]>([utsData,uvueData])
-
+	const paperData = ref<PaperType[]>([utsData,uvueData,errorData])
+	
 </script>
 
 <style>
