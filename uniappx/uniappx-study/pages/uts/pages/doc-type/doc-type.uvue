@@ -1,0 +1,35 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+		
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script setup>
+	
+	
+	
+	function test(score: number): boolean {
+		return (score>=60)
+	}
+	test(1/10)
+
+	function financial(x: Number): String {
+	  return x.toFixed(2);
+	}
+	let a = 123.456
+	console.log(typeof(a)) // number 与 Number 的区别是啥
+	console.log(financial(a));
+	// expected output: "123.46"
+	console.log(financial(0.004));
+	// expected output: "0.00"
+
+	
+</script>
+
+<style>
+
+</style>

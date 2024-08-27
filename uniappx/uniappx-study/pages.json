@@ -33,6 +33,13 @@
 			{
 				"navigationBarTitleText" : "error-forChange"
 			}
+		},
+		{
+			"path" : "pages/uts/pages/doc-type/doc-type",
+			"style" : 
+			{
+				"navigationBarTitleText" : "doc-type"
+			}
 		}
 	],
 	"globalStyle": {

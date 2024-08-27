@@ -2,10 +2,11 @@ import { Item, PaperType } from "@/assets/type/PageInstruction";
 
 const data : Item[] = [
 	{
-		name: "",
-		page: "",
+		name: "数据类型",
+		page: "doc-type",
 		summarize: [
-			{ title: "", type: "" }
+			{ title: "推导规则:通过数字字面量以及数字字面量组成的运算表达式来给变量赋值，此时变量类型默认推导为 number类型", type: "primary" },
+			{ title: "推导规则:纯数字字面量的除法，其结果会变成number", type: "primary" },
 		]
 	},
 ];
