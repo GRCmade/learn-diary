@@ -1,12 +1,12 @@
 <template>
 	<view class="" v-for="(item,index) in paperDataWithBool" :key="index">
 		<text class="title">{{item.paperTile}}</text>
-		<view class="box" :class="paper.isSelect?'select':''" v-for="paper in item.data">
+		<view class="box" :class="paper.isSelect?'select':''" v-for="(paper,i) in item.data">
 			<view class="box-item wrapper">
 				<!-- TODO 安卓上点击不触发 -->
-				<view class="box-item-item" style="width: 70%;" @click="click('select',paper)">
+				<view class="box-item-item" style="width: 70%;" @click="showSelect(index,i)">
 					<uni-icons type="list" size="20"></uni-icons>
-					<text style="margin-left: 5px;font-weight: 700;">{{paper.name}}</text>
+					<text style="margin-left: 5px;font-weight: 700;">{{paper.isSelect}}</text>
 					<text class="badge primary">{{getBadgeCount(paper.summarize,'primary')}}</text>
 					<text class="badge warn">{{getBadgeCount(paper.summarize,'warn')}}</text>
 					<text class="badge error">{{getBadgeCount(paper.summarize,'error')}}</text>
@@ -69,7 +69,7 @@
 	const paperDataWithBool = ref<PaperDataWithBool[]>([]);
 	onLoad((event : OnLoadOptions) => {
 		// TODO 为啥这个length能取到值，但是报错
-		let len = props.paperData.length;
+		let len : number = props.paperData.length;
 		paperDataWithBool.value = [];
 		for (let i = 0; i < len; i++) {
 			let paperDataWithBoolItem = new PaperDataWithBool(
@@ -78,7 +78,7 @@
 			);
 			paperDataWithBool.value.push(paperDataWithBoolItem);
 		}
-		console.log(paperDataWithBool);
+		// console.log(paperDataWithBool);
 	});
 
 	const getBadgeCount = (arr:SummarizeItem[],type:string):number=>{
@@ -88,6 +88,12 @@
 			if(item.type == type)len++
 		})
 		return len
+	}
+	
+	const showSelect = (index:number,i:number)=>{
+		console.log(index,i)
+		console.log(paperDataWithBool.value[index].data[i].isSelect)
+		paperDataWithBool.value[index].data[i].isSelect = true
 	}
 	const click = (type:string,item : ItemWithBool) => {
 		if(type == 'select'){

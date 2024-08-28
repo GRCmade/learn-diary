@@ -1,0 +1,30 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+		<view v-for="(item,index) in data" :key="index">
+			<!-- <view @click="click({index:index,name:item}  as clickItem)">
+				{{index}}
+			</view> -->
+		</view>
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script setup>
+	type clickItem = {
+		index:number
+		name:string
+	}
+	
+	const data = ref(["yuhe","yuhe1","yuhe2"])
+	
+	const click = (item:clickItem)=>{
+		console.log(item)
+	}
+</script>
+
+<style>
+
+</style>

@@ -26,8 +26,21 @@
 	// expected output: "123.46"
 	console.log(financial(0.004));
 	// expected output: "0.00"
-
 	
+	// let any:any = null
+	// console.log(any)
+	
+	// let b : string | null = "abc"
+	// console.log(b?.a)
+	
+	const foo = null ?? 'default string';
+	console.log(foo);
+	// Expected output: "default string"
+	
+	const baz = 0 ?? 42;
+	console.log(baz);
+	// Expected output: 0
+
 </script>
 
 <style>

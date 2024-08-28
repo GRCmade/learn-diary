@@ -1,0 +1,33 @@
+<template>
+	<!-- #ifdef APP -->
+	<scroll-view style="flex:1">
+	<!-- #endif -->
+		
+	<!-- #ifdef APP -->
+	</scroll-view>
+	<!-- #endif -->
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		onLoad() {
+			const a = "uts"
+			const b: string | null = null
+			console.log(a.length) // a是明确的string类型，它的属性可以直接调用，无需安全调用
+			console.log(b?.length) // b可能为null，null没有length属性，在没有判空时，.操作符前面必须加?标记
+
+		},
+		methods: {
+			
+		}
+	}
+</script>
+
+<style>
+
+</style>

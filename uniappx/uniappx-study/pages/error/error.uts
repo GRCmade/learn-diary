@@ -10,11 +10,11 @@ const data : Item[] = [
 		]
 	},{
 		name: "问题页面2",
-		page: "error-forChange",
+		page: "error-2",
 		summarize: [
-			{ title: "在前面注释是正常，在后面注释是错误的", type: "error" },
+			{ title: "在传参数时传{}时出现的问题", type: "error" },
 		]
-	},
+	}
 ];
 
 const paperTile : string = "error"

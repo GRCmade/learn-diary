@@ -40,6 +40,27 @@
 			{
 				"navigationBarTitleText" : "doc-type"
 			}
+		},
+		{
+			"path" : "pages/error/pages/error-2/error-2",
+			"style" : 
+			{
+				"navigationBarTitleText" : "error-2"
+			}
+		},
+		{
+			"path" : "pages/test/pages/test-option/test-option",
+			"style" : 
+			{
+				"navigationBarTitleText" : "test-option"
+			}
+		},
+		{
+			"path" : "pages/test/pages/test-setup/test-setup",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
 		}
 	],
 	"globalStyle": {

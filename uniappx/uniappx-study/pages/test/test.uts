@@ -1,0 +1,24 @@
+import { Item, PaperType } from "@/assets/type/PageInstruction";
+
+const data : Item[] = [
+	{
+		name: "测试页面-选项式",
+		page: "test-option",
+		summarize: [
+			{ title: "不能将 null 赋值给 any 类型的变量", type: "primary" },
+		]
+	},{
+		name: "测试页面-组合式",
+		page: "test-setup",
+		summarize: [
+			{ title: "不能将 null 赋值给 any 类型的变量", type: "primary" },
+		]
+	},
+];
+
+const paperTile : string = "test"
+
+export const testData : PaperType = {
+	paperTile: paperTile,
+	data: data
+};

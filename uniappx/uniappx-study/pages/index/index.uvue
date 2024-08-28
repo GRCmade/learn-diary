@@ -12,9 +12,12 @@
 	import { utsData } from '../uts/uts.uts';
 	import { uvueData } from "../uvue/uvue.uts"
 	import { errorData } from "../error/error.uts"
+	import { testData } from "../test/test.uts"
 	import { PaperType } from '@/assets/type/PageInstruction';
 	import knowledegeListUvue from './components/knowledegeList.uvue';
-	const paperData = ref<PaperType[]>([utsData,uvueData,errorData])
+	const paperData = ref<PaperType[]>([testData,utsData,uvueData,errorData])
+	
+	// uni.navigateTo({url:"/pages/uts/pages/doc-type/doc-type"})
 	
 </script>
 
