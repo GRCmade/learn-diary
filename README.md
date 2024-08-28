@@ -1,4 +1,4 @@
 # learn-diary
 my learning record
 
-test raycast argument
+test raycast argument auto
