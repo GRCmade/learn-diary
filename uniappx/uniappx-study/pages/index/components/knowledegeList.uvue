@@ -6,7 +6,7 @@
 				<!-- TODO 安卓上点击不触发 -->
 				<view class="box-item-item" style="width: 70%;" @click="showSelect(index,i)">
 					<uni-icons type="list" size="20"></uni-icons>
-					<text style="margin-left: 5px;font-weight: 700;">{{paper.isSelect}}</text>
+					<text style="margin-left: 5px;font-weight: 700;">{{paper.name}}</text>
 					<text class="badge primary">{{getBadgeCount(paper.summarize,'primary')}}</text>
 					<text class="badge warn">{{getBadgeCount(paper.summarize,'warn')}}</text>
 					<text class="badge error">{{getBadgeCount(paper.summarize,'error')}}</text>
@@ -93,7 +93,8 @@
 	const showSelect = (index:number,i:number)=>{
 		console.log(index,i)
 		console.log(paperDataWithBool.value[index].data[i].isSelect)
-		paperDataWithBool.value[index].data[i].isSelect = true
+		
+		paperDataWithBool.value[index].data[i].isSelect = ! paperDataWithBool.value[index].data[i].isSelect
 	}
 	const click = (type:string,item : ItemWithBool) => {
 		if(type == 'select'){
