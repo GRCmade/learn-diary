@@ -17,6 +17,9 @@
       "esnext",
       "dom"
     ],
+    "include": [
+      "global.d.ts"
+    ],
     "types": [
       "@dcloudio/types"
     ]

@@ -5,9 +5,11 @@
 		</view>
 	</view>
 	<button @click="GetInfo">GetInfo</button>
+	<com-nav></com-nav>
 </template>
 
 <script setup lang="ts">
+import comNav from "@/components/com-nav/com-nav"
 import { ref, Ref } from 'vue'
 
 type clickItem  = {
@@ -36,7 +38,10 @@ const GetInfo = () => {
 	console.log(list.value)
 }
 
-console.log(list?.yuhe)
+// console.log(list?.yuhe)
+
+let resolveType: ResolveType = "yuhe888"
+console.log(resolveType)
 </script>
 
 <style>
