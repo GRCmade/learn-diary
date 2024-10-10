@@ -7,59 +7,10 @@
 			}
 		},
 		{
-			"path" : "pages/uts/pages/uts-test/uts-test",
+			"path" : "pages/ask/199470/199470",
 			"style" : 
 			{
-				"navigationBarTitleText" : ""
-			}
-		},
-		{
-			"path" : "pages/uvue/pages/uvue-test/uvue-test",
-			"style" : 
-			{
-				"navigationBarTitleText" : ""
-			}
-		},
-		{
-			"path" : "pages/error/pages/error-1/error-1",
-			"style" : 
-			{
-				"navigationBarTitleText" : "error"
-			}
-		},
-		{
-			"path" : "pages/error/pages/error-forChange/error-forChange",
-			"style" : 
-			{
-				"navigationBarTitleText" : "error-forChange"
-			}
-		},
-		{
-			"path" : "pages/uts/pages/doc-type/doc-type",
-			"style" : 
-			{
-				"navigationBarTitleText" : "doc-type"
-			}
-		},
-		{
-			"path" : "pages/error/pages/error-2/error-2",
-			"style" : 
-			{
-				"navigationBarTitleText" : "error-2"
-			}
-		},
-		{
-			"path" : "pages/test/pages/test-option/test-option",
-			"style" : 
-			{
-				"navigationBarTitleText" : "test-option"
-			}
-		},
-		{
-			"path" : "pages/test/pages/test-setup/test-setup",
-			"style" : 
-			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "199470"
 			}
 		}
 	],
