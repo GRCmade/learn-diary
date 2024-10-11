@@ -1,0 +1,54 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/gaoruicheng/.ohos/config/default_calendarApplication_EM3rF_9JxlBvvhBmSjOXrZSebM6w3EeZ35pGxf8d1O0=.cer",
+          "storePassword": "0000001BCAF29C76289155F64C4FAD190E4D44B850BA0B7846974CB6E89E055B1DF9D4B4828C9A0FE62E53",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B616BC6990E069F6D431E8F1B5B046D390EB097623333D61FCE029A1413C6E2A87641B58A10B9DD",
+          "profile": "/Users/gaoruicheng/.ohos/config/default_calendarApplication_EM3rF_9JxlBvvhBmSjOXrZSebM6w3EeZ35pGxf8d1O0=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/gaoruicheng/.ohos/config/default_calendarApplication_EM3rF_9JxlBvvhBmSjOXrZSebM6w3EeZ35pGxf8d1O0=.p12"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}
