@@ -13,7 +13,7 @@ struct Index {
   @State message: string = 'Hello World';
 
   build() {
-    RelativeContainer() {
+    Row() {
       Button("获取授权").onClick(()=>{
         let context = getContext(this) as common.UIAbilityContext;
         notificationManager.isNotificationEnabled().then((data: boolean) => {
@@ -33,7 +33,7 @@ struct Index {
           hilog.error(DOMAIN_NUMBER, TAG, `isNotificationEnabled fail: ${JSON.stringify(err)}`);
         });
       })
-      Button("发送通知").onClick(()=>{
+      Button("发送通知1").onClick(()=>{
         let notificationRequest: notificationManager.NotificationRequest = {
           id: 1,
           content: {
@@ -52,6 +52,18 @@ struct Index {
           }
           hilog.info(DOMAIN_NUMBER, TAG, 'Succeeded in publishing notification.');
         });
+      })
+      Button("修改角标").onClick(()=>{
+        let setBadgeNumberCallback = (err: BusinessError): void => {
+          if (err) {
+            hilog.error(DOMAIN_NUMBER, TAG, `Failed to set badge number. Code is ${err.code}, message is ${err.message}`);
+            return;
+          }
+          hilog.info(DOMAIN_NUMBER, TAG, `Succeeded in setting badge number.`);
+        }
+
+        let badgeNumber = 9;
+        notificationManager.setBadgeNumber(badgeNumber, setBadgeNumberCallback);
       })
     }
     .height('100%')
