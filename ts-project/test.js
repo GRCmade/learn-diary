@@ -1,15 +1,5 @@
-var values = [
-    undefined,
-    null,
-    true,
-    42,
-    BigInt(42),
-    "hello",
-    Symbol("symbol"),
-    function () { },
-    {},
-    []
-];
-values.forEach(function (value) {
-    console.log("".concat(value, " is of type ").concat(typeof value));
-});
+const today = moment();
+const startOfWeek = today.clone().startOf("isoWeek");
+const weekDays = Array.from({ length: 7 }, (_, i) =>
+    startOfWeek.clone().add(i, "days").format("MM-DD")
+);
